@@ -53,10 +53,11 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:/Programmieren/gtk/include/gtk-3.0;D:/Programmieren/gtk/include/cairo;D:/Programmieren/gtk/include/pango-1.0;D:/Programmieren/gtk/include/atk-1.0;D:/Programmieren/gtk/include/cairo;D:/Programmieren/gtk/include/pixman-1;D:/Programmieren/gtk/include;D:/Programmieren/gtk/include/freetype2;D:/Programmieren/gtk/include;D:/Programmieren/gtk/include/libpng15;D:/Programmieren/gtk/include/gdk-pixbuf-2.0;D:/Programmieren/gtk/include/libpng15;D:/Programmieren/gtk/include/glib-2.0;D:/Programmieren/gtk/lib/glib-2.0/include;D:\Programmieren\libcurl-7.19.3-win32-ssl-msvc\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\libcurl-7.19.3-win32-ssl-msvc\lib\Debug\curllib.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>D:\Programmieren\libcurl-7.19.3-win32-ssl-msvc\lib\Debug\curllib.lib;%(AdditionalDependencies);D:\Programmieren\gtk\lib\atk-1.0.lib;D:\Programmieren\gtk\lib\cairo.lib;D:\Programmieren\gtk\lib\fontconfig.lib;D:\Programmieren\gtk\lib\gailutil.lib;D:\Programmieren\gtk\lib\gdk_pixbuf-2.0.lib;D:\Programmieren\gtk\lib\gdk-win32-3.0.lib;D:\Programmieren\gtk\lib\gio-2.0.lib;D:\Programmieren\gtk\lib\glib-2.0.lib;D:\Programmieren\gtk\lib\gmodule-2.0.lib;D:\Programmieren\gtk\lib\gobject-2.0.lib;D:\Programmieren\gtk\lib\gthread-2.0.lib;D:\Programmieren\gtk\lib\gtk-win32-3.0.lib;D:\Programmieren\gtk\lib\pango-1.0.lib;D:\Programmieren\gtk\lib\pangocairo-1.0.lib;D:\Programmieren\gtk\lib\pangoft2-1.0.lib;D:\Programmieren\gtk\lib\pangowin32-1.0.lib;</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
