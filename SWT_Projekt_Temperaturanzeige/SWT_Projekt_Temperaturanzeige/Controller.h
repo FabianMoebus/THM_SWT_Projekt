@@ -5,7 +5,9 @@ using namespace std;
 
 class Controller {
 private:
-	Model subject;
+	// GTK-Objekt
 public:
+	// GTK-Objekt
+	Model subject;
 	void run(string url);
 };

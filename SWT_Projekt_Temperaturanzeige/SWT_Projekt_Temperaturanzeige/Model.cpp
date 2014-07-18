@@ -85,6 +85,8 @@ void Model::do_update(string url) {
 		}
 	}
 
+	// Observer benachrichtigen
+	notify();
 }
 
 
