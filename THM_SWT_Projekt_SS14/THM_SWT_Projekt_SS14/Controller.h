@@ -2,7 +2,6 @@
 #include "Model.h"
 #include <string>
 
-
 using namespace std;
 
 class Controller {

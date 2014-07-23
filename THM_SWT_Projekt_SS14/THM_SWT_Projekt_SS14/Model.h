@@ -17,6 +17,9 @@ public:
 	string t_orte[6];
 	double t_val[6];
 	string t_metadaten[2];
+	GtkWidget *widget_;
+	cairo_t *cr_;
+	gpointer data;
 	// Methoden
 	void do_update(string url);		
 	void attach_observer(Observer_Graph *observer);

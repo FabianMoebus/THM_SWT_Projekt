@@ -8,7 +8,7 @@ using namespace std;
 
 class Observer_Graph {
 public:
-	virtual void update(string t_orte[], double t_val[], string t_metadaten[]);
+	virtual void update(cairo_t *cr, GtkWidget *widget, string t_orte[], double t_val[], string t_metadaten[]);
 };
 
 #endif

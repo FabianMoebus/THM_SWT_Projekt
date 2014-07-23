@@ -53,6 +53,7 @@
       <Optimization>Disabled</Optimization>
       <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AdditionalIncludeDirectories>C:\gtk\include\atk-1.0;C:\gtk\include\cairo;C:\gtk\include\fontconfig;C:\gtk\include\freetype2;C:\gtk\include\gail-3.0;C:\gtk\include\gdk-pixbuf-2.0;C:\gtk\include\gio-win32-2.0;C:\gtk\include\glib-2.0;C:\gtk\include\gtk-3.0;C:\gtk\include\jasper;C:\gtk\include\libcroco-0.6;C:\gtk\include\libpng15;C:\gtk\include;C:\gtk\include\librsvg-2.0;C:\gtk\include\libxml2;C:\gtk\include\lzma;C:\gtk\include\pango-1.0;C:\gtk\include\pixman-1;C:\gtk\lib\glib-2.0\include;C:\curl-7.37.0\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <CompileAsManaged>true</CompileAsManaged>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

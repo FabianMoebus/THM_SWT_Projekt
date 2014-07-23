@@ -4,5 +4,7 @@ using namespace std;
 
 void Controller::run(string url) {
 	subject.do_update(url);	 
-	//_sleep(60000);
+	//_sleep(130000);
 }
+
+

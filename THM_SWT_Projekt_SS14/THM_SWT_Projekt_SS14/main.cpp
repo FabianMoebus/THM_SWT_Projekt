@@ -11,16 +11,7 @@ GtkWidget *window;
 GtkWidget *button_quit;
 GtkWidget *frame;
 
-static GtkWidget *widget_;
-static cairo_t *cr_;
-
-Observer_Balken *balken;
-Observer_Dots *dots;
-Observer_Text *text;
-
 Controller controller;
-
-
 
 static void do_drawing(cairo_t *, GtkWidget *);
 gboolean update_gui (gpointer data);
@@ -30,8 +21,9 @@ static gboolean on_draw_event(GtkWidget *widget, cairo_t *cr,
 							  gpointer user_data)
 {
 	//Variablen übergeben
-	cr_ = cr;
-	widget_ = widget;
+	controller.subject.cr_ = cr;
+	controller.subject.widget_ = widget;
+	controller.subject.data = user_data;
 
 	//Funktion zum zeichnen aufrufen
 	do_drawing(cr, widget);
@@ -41,13 +33,9 @@ static gboolean on_draw_event(GtkWidget *widget, cairo_t *cr,
 
 static void do_drawing(cairo_t *cr, GtkWidget *widget) {
 	//Werte übergeben
-	cr_ = cr;
-	widget_ = widget;
+	controller.subject.cr_ = cr;
+	controller.subject.widget_ = widget;
 	controller.run("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt");
-
-	dots->update(cr,widget,controller.subject.t_orte, controller.subject.t_val, controller.subject.t_metadaten);
-	balken->update(cr,widget,controller.subject.t_orte, controller.subject.t_val, controller.subject.t_metadaten);
-	text->update(cr,widget,controller.subject.t_orte, controller.subject.t_val, controller.subject.t_metadaten);
 
 	//Cairo Anzeige updaten
 	gtk_widget_queue_draw(widget);
@@ -56,16 +44,10 @@ static void do_drawing(cairo_t *cr, GtkWidget *widget) {
 
 gboolean update_gui (gpointer data)
 {
-	do_drawing(cr_,widget_);
-	////Updaten von Temperaturdaten und Anzeige
-	//controller.run("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt");
+	//Updaten von Temperaturdaten und Anzeige
+	controller.run("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt");
+	do_drawing(controller.subject.cr_, controller.subject.widget_);
 
-	//dots->update(cr_,widget_,controller.subject.t_orte, controller.subject.t_val, controller.subject.t_metadaten);
-	//balken->update(cr_,widget_,controller.subject.t_orte, controller.subject.t_val, controller.subject.t_metadaten);
-	//text->update(cr_,widget_,controller.subject.t_orte, controller.subject.t_val, controller.subject.t_metadaten);
-	///* Return true so the function will be called again; returning false removes
-	//* this timeout function.
-	//*/
 	return TRUE;
 }
 
@@ -79,18 +61,11 @@ int main(int argc, char *argv[]) {
 	controller.subject.attach_observer(new Observer_Balken());
 	controller.subject.attach_observer(new Observer_Dots());
 	controller.subject.attach_observer(new Observer_Text());
-	// run
-	controller.run("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt");
-
-	text = new Observer_Text();
-	balken = new Observer_Balken();
-	dots = new Observer_Dots();
-
 
 	window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
 	//Fensteranzeigename, -position und -groesse
 	gtk_window_set_position(GTK_WINDOW(window), GTK_WIN_POS_CENTER);
-	gtk_window_set_default_size(GTK_WINDOW(window), 810, 280); 
+	gtk_window_set_default_size(GTK_WINDOW(window), 810, 290); 
 	gtk_window_set_title(GTK_WINDOW(window), "Wetterstation Friedberg - Projektaufgabe");
 
 	frame = gtk_fixed_new();
@@ -116,7 +91,7 @@ int main(int argc, char *argv[]) {
 	g_timeout_add(10000,
 		update_gui,
 		NULL);
-
+	
 	gtk_main();
 
 	return 0;

@@ -67,6 +67,12 @@ void Observer_Balken::punkte_zeichnen(cairo_t *cr, GtkWidget *widget, string *t_
 		cairo_set_source_rgba (cr, 1, 0, 0, 0.80);
 		cairo_fill (cr);
 
+		//Ort anzeigen
+		cairo_set_source_rgba (cr, 0, 0, 0, 1.0);
+		cairo_set_font_size (cr, 14.0);
+		cairo_move_to(cr,x+3,240);
+		cairo_show_text (cr, to_string(i+1).c_str());
+
 		x=x+d; //Abstand zwischen den Punkten
 
 	}

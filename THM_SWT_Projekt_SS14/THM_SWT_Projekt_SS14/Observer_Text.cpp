@@ -10,6 +10,8 @@ void Observer_Text::update(cairo_t *cr, GtkWidget *widget, string t_orte[], doub
 
 		//Wetterdaten Ort-Label
 		cairo_set_font_size (cr, 14.0);
+		cairo_move_to(cr, 587, d);
+		cairo_show_text(cr, to_string(i+1).c_str());
 		cairo_move_to(cr,600,d);
 		cairo_show_text (cr, t_orte[i].c_str());
 
@@ -25,4 +27,8 @@ void Observer_Text::update(cairo_t *cr, GtkWidget *widget, string t_orte[], doub
 	cairo_set_font_size (cr, 14.0);
 	cairo_move_to(cr,-8,270);
 	cairo_show_text (cr, t_metadaten[0].c_str());
+
+	cairo_set_font_size (cr, 14.0);
+	cairo_move_to(cr,-8,285);
+	cairo_show_text (cr, t_metadaten[1].c_str());
 }
