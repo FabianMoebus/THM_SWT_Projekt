@@ -61,8 +61,7 @@ void Observer_Dots::punkte_zeichnen(cairo_t *cr, GtkWidget *widget, string *t_or
 	int y = 235;
 
 	//Punkte zeichnen
-	for (int i = 0; i < 6; i++)
-	{
+	for (int i = 0; i < 6; i++) {
 		cairo_set_source_rgba (cr, 0, 0, 0, 1.0);
 
 		double temp_Y_value = (t_val[i])*2; //Mit 2 Multipliziert, da die Anzeigeskala den Größenfaktor 2 hat
@@ -79,8 +78,6 @@ void Observer_Dots::punkte_zeichnen(cairo_t *cr, GtkWidget *widget, string *t_or
 			cairo_line_to(cr, x+d, 220-temp_Y_next_value);
 			cairo_stroke(cr);
 		}
-
-		
 
 	//Ort anzeigen
 	cairo_set_source_rgba (cr, 0, 0, 0, 1.0);

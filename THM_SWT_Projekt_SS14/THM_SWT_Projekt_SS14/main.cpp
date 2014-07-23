@@ -17,9 +17,7 @@ static void do_drawing(cairo_t *, GtkWidget *);
 gboolean update_gui (gpointer data);
 
 
-static gboolean on_draw_event(GtkWidget *widget, cairo_t *cr, 
-							  gpointer user_data)
-{
+static gboolean on_draw_event(GtkWidget *widget, cairo_t *cr, gpointer user_data) {
 	//Variablen übergeben
 	controller.subject.cr_ = cr;
 	controller.subject.widget_ = widget;
@@ -42,8 +40,7 @@ static void do_drawing(cairo_t *cr, GtkWidget *widget) {
 }
 
 
-gboolean update_gui (gpointer data)
-{
+gboolean update_gui (gpointer data) {
 	//Updaten von Temperaturdaten und Anzeige
 	controller.run("http://tk-labor.iem.thm.de/bti-swt-pa-ss14/hochrechnungen.txt");
 	do_drawing(controller.subject.cr_, controller.subject.widget_);
