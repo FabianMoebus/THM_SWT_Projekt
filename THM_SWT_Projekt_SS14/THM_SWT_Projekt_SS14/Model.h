@@ -18,7 +18,7 @@ public:
 	double t_val[6];
 	string t_metadaten[2];
 	// Methoden
-	void do_update(string url);	
+	void do_update(string url);		// Temperaturdaten herunterladen und in Variablen speichern
 	void attach_observer(Observer_Graph *observer);
 	void notify();
 	void clear_string(char arg[], int length);

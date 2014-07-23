@@ -56,7 +56,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\atk-1.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\cairo.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\fontconfig.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gailutil.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gdk_pixbuf-2.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gdk-win32-3.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gio-2.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\glib-2.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gmodule-2.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gobject-2.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gthread-2.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\gtk-win32-3.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\pango-1.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\pangocairo-1.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\pangoft2-1.0.lib;C:\Users\Fabian\Downloads\gtk+-bundle_3.6.4-20130921_win32\lib\pangowin32-1.0.lib;C:\Users\Fabian\Downloads\libcurl-7.19.3-win32-ssl-msvc\lib\Debug\curllib.lib</AdditionalDependencies>
+      <AdditionalDependencies>C:\gtk\lib\atk-1.0.lib;C:\gtk\lib\cairo.lib;C:\gtk\lib\fontconfig.lib;C:\gtk\lib\gailutil.lib;C:\gtk\lib\gdk_pixbuf-2.0.lib;C:\gtk\lib\gdk-win32-3.0.lib;C:\gtk\lib\gio-2.0.lib;C:\gtk\lib\glib-2.0.lib;C:\gtk\lib\gmodule-2.0.lib;C:\gtk\lib\gobject-2.0.lib;C:\gtk\lib\gthread-2.0.lib;C:\gtk\lib\gtk-win32-3.0.lib;C:\gtk\lib\pango-1.0.lib;C:\gtk\lib\pangocairo-1.0.lib;C:\gtk\lib\pangoft2-1.0.lib;C:\gtk\lib\pangowin32-1.0.lib;C:\curl-7.37.0\curllib.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -87,9 +87,6 @@
     <ClCompile Include="Observer_Dots.cpp" />
     <ClCompile Include="Observer_Graph.cpp" />
     <ClCompile Include="Observer_Text.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

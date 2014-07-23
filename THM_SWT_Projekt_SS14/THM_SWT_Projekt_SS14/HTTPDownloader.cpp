@@ -7,9 +7,6 @@
 
 using namespace std;
 
-/* spezifische write-Funktion:
- * Ausgabe von cURL in stringstream umleiten
- */
 size_t write_data(void *ptr, size_t size, size_t nmemb, void *stream) {
     string data((const char*) ptr, (size_t) size * nmemb);
     *((stringstream*) stream) << data << endl;
@@ -25,21 +22,17 @@ HTTPDownloader::~HTTPDownloader() {
 }
 
 string HTTPDownloader::download(const std::string& url) {
-	// Inhalt der URL in Variable out speichern
+   curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
+   curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
+   curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1); 
+   curl_easy_setopt(curl, CURLOPT_TRANSFER_ENCODING, "deflate");
 	std::stringstream out;
-
-	curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
-	curl_easy_setopt(curl, CURLOPT_FOLLOWLOCATION, 1L);
-	curl_easy_setopt(curl, CURLOPT_NOSIGNAL, 1); 
-	curl_easy_setopt(curl, CURLOPT_TRANSFER_ENCODING, "deflate");
-	// spezifische write-Funktion übergeben
-	curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
-	curl_easy_setopt(curl, CURLOPT_WRITEDATA, &out);
-	// Datei von URL herunterladen
-	CURLcode res = curl_easy_perform(curl);
-	if (res != CURLE_OK) {
-		fprintf(stderr, "curl_easy_perform() failed: %s\n",
-			curl_easy_strerror(res));
-	}
-	return out.str();
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, write_data);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, &out);
+    CURLcode res = curl_easy_perform(curl);
+    if (res != CURLE_OK) {
+        fprintf(stderr, "curl_easy_perform() failed: %s\n",
+                curl_easy_strerror(res));
+    }
+    return out.str();
 }

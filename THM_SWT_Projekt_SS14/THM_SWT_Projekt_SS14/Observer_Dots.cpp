@@ -7,43 +7,65 @@ void Observer_Dots::update(cairo_t *cr, GtkWidget *widget, string t_orte[], doub
 }
 
 void Observer_Dots::achsen_zeichnen(cairo_t *cr, GtkWidget *widget) {
+	//cairo_set_source_rgba (cr, 0, 0, 0, 1.0);
 	//Y-Achse
-	cairo_move_to(cr, 20, 20);  
-	cairo_line_to(cr, 20, 220);
+	cairo_move_to(cr, 40, 20);  
+	cairo_line_to(cr, 40, 220);
 	cairo_stroke(cr); 
 	//X-Achse
-	cairo_move_to(cr, 20, 220);  
-	cairo_line_to(cr, 220, 220);
+	cairo_move_to(cr, 40, 220);  
+	cairo_line_to(cr, 240, 220);
 	cairo_stroke(cr);
 
 	//Stufungen Gradanzeige
 	//25
-	cairo_move_to(cr, 15, 170);  
-	cairo_line_to(cr, 20, 170);
+	cairo_move_to(cr, 35, 170);  
+	cairo_line_to(cr, 40, 170);
 	cairo_stroke(cr);
+	//Grad anzeigen
+	cairo_set_font_size (cr, 10.0);
+	cairo_move_to(cr,15,174);
+	cairo_show_text (cr, "25");
+
 	//50
-	cairo_move_to(cr, 15, 120);  
-	cairo_line_to(cr, 20, 120);
+	cairo_move_to(cr, 35, 120);  
+	cairo_line_to(cr, 40, 120);
 	cairo_stroke(cr);
+	//Grad anzeigen
+	cairo_set_font_size (cr, 10.0);
+	cairo_move_to(cr,15,124);
+	cairo_show_text (cr, "50");
+
 	//75
-	cairo_move_to(cr, 15, 70);  
-	cairo_line_to(cr, 20, 70);
+	cairo_move_to(cr, 35, 70);  
+	cairo_line_to(cr, 40, 70);
 	cairo_stroke(cr);
+	//Grad anzeigen
+	cairo_set_font_size (cr, 10.0);
+	cairo_move_to(cr,15,74);
+	cairo_show_text (cr, "75");
+
 	//100
-	cairo_move_to(cr, 15, 20);  
-	cairo_line_to(cr, 20, 20);
+	cairo_move_to(cr, 35, 20);  
+	cairo_line_to(cr, 40, 20);
 	cairo_stroke(cr);
+	//Grad anzeigen
+	cairo_set_font_size (cr, 10.0);
+	cairo_move_to(cr,15,24);
+	cairo_show_text (cr, "100");
 }
 
 void Observer_Dots::punkte_zeichnen(cairo_t *cr, GtkWidget *widget, string *t_orte, double *t_val, string *t_metadaten) {
 	int d = 30; //X-Achsen Abstand zwischen den Punkten
-	int x = 50;
-	int y = 20;
+	int x = 70;
+	int y = 235;
+	cairo_matrix_t matrix;
 
 	//Punkte zeichnen
-	for (int i = 0; i < 12; i++)
+	for (int i = 0; i < 6; i++)
 	{
-		i++;
+		cairo_set_source_rgba (cr, 0, 0, 0, 1.0);
+
 		double temp_Y_value = (t_val[i])*2; //Mit 2 Multipliziert, da die Anzeigeskala den Größenfaktor 2 hat
 		double temp_Y_next_value = (t_val[i+1])*2;//Nächster Y-Punkt um eine Verbindung zu zeichnen
 
@@ -51,13 +73,23 @@ void Observer_Dots::punkte_zeichnen(cairo_t *cr, GtkWidget *widget, string *t_or
 		cairo_stroke(cr);
 
 		//Linien Zeichnen
-		if(i<10) { //Letzter Strich wird niht gezeichnet
+		
+		if(i<5) { //Letzter Strich wird niht gezeichnet
+			cairo_set_source_rgba (cr, 0, 0, 0, 0.4);
 			cairo_move_to(cr, x, 220-temp_Y_value);  
 			cairo_line_to(cr, x+d, 220-temp_Y_next_value);
 			cairo_stroke(cr);
 		}
 
-		x=x+d; //Abstand zwischen den Punkten
+		
 
+	////Ort anzeigen
+	//cairo_set_source_rgba (cr, 0, 0, 0, 1.0);
+	//cairo_set_font_size (cr, 14.0);
+	//cairo_move_to(cr,x,y);
+	//cairo_show_text (cr, t_orte[i].c_str());
+
+	x=x+d; //Abstand zwischen den Punkten
+	//y = y +14;
 	}
 }
