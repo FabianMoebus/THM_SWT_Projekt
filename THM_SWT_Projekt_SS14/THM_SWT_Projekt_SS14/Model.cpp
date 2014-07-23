@@ -2,20 +2,22 @@
 #include <iostream>
 
 void Model::do_update(string url) {
-	// HTTP-Downloader
 	string str;					// String der kompletten .txt Datei
 	string t_daten[12];			// String-Array mit Temperatur und Orte (Orte und Temperaturwerte noch nicht getrennt)
-	char tmp_str[50];			// temporäre String-Variable
+	char tmp_str[50];			// temporäre String-Variable, hier werden die eingelesen Character gespeichert
+								// bevor sie in t_metadaten[] bzw. t_daten[] gespeichert werden
 
+	// komplette .txt-Datei herunterladen
+	// und den Inhalt als String speichern
 	str = httpdownloader.download(url);
 
-	int zaehler = 0;
-	int j = 0;
-	int b_hash = 0;
+	int zaehler = 0;			// Zählvariable für t_daten[]
+	int j = 0;					// Zählvariable für tmp_str[]
+	int b_hash = 0;				// zählt die Zeilen, die mit '#' beginnen
 
 	clear_string(tmp_str, 50);
 
-	// Output-String parsen und in arr speichern
+	// Output-String parsen und abspeichern
 	for(size_t i = 0; i < str.length(); i++) {
 
 		/* Wenn Zeile mit # beginnt, nachfolgenden String speichern */
@@ -24,18 +26,25 @@ void Model::do_update(string url) {
 			j = 0;
 		}
 
-		/* Erste Zeile mit # einlesen und speichern */
+		/* Erste Zeile mit # einlesen und speichern 
+		 * Lese solange, bis Zeilenende ('\n') nicht erreicht
+		 */
 		if (b_hash == 1) {
 			tmp_str[j] = str[i];
 			j++;
 			if (str[i] == '\n') {
+				/* Zeilenende erreicht, speichere Metadaten in Zielvariable t_metadaten[]
+				 * temporäre String-Variable tmp_str leeren und Zählvariable j zurücksetzen
+				 */
 				t_metadaten[0] = tmp_str;
 				clear_string(tmp_str, 50);
 				j = 0;
 			}
 		}
 
-		/* Zweite Zeile mit # einlesen und speichern */
+		/* Zweite Zeile mit # einlesen und speichern 
+		 * Lese solange, bis Zeilenende ('\n') nicht erreicht
+		 */
 		if (b_hash == 2) {
 			tmp_str[j] = str[i];
 			j++;
@@ -48,16 +57,23 @@ void Model::do_update(string url) {
 			}
 		}
 
-		/* Ort und Temperatur zeilenweise einlesen */
+		/* Ort und Temperatur zeilenweise einlesen 
+		 * Ort und Temperaturwert sind durch ',' getrennt
+		 * Zeilenende wird mit '\n' abgefragt
+		 */
 		if (b_hash == 0) {
 			if ((str[i] != ',') && (str[i] != '\n')) {
 				if (str[i] == ' ') {
+					// überspringe Leerzeichen
 					continue;
 				} else {
 					tmp_str[j] = str[i];
 					j++;
 				}
 			} else {
+				/* Ort bzw. Temperaturwert vollständig eingelesen
+				 * tmp_str in t_daten[] abspeichern
+				 */
 				t_daten[zaehler] = tmp_str;
 				clear_string(tmp_str, 50);
 				zaehler++;
@@ -67,8 +83,8 @@ void Model::do_update(string url) {
 	}
 
 
-	int z = 0;
-	int y = 0;
+	int z = 0;			// Zählvariable t_val[]
+	int y = 0;			// Zählvariable t_orte[]
 
 	/* Orte und Temperatur den jeweiligen Arrays zuweisen 
 	 * Orte ==> t_orte[]
@@ -97,15 +113,21 @@ void Model::attach_observer(Observer_Graph *observer) {
 }
 
 void Model::notify() {
+	// Iterator deklarieren
 	std::list<Observer_Graph*>::iterator iter;
+	// Iterator auf Listenanfang setzen
     iter = observer_list.begin();
     
+	// Solange Listenende nicht erreicht, update-Methode des Observers ausführen
     while (iter != observer_list.end()) {
 		(*iter)->update(t_orte, t_val, t_metadaten);
-        iter++;
+        // Iterator auf nächsten Observer zeigen lassen
+		iter++;
     }
 }
 
+/* Übergebenen String mit '\0' überschreiben 
+ */
 void Model::clear_string(char arg[], int length) {
 	for(int i = 0; i < length; i++) {
 		arg[i] = '\0';

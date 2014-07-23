@@ -1,7 +1,19 @@
-﻿Der Buildvorgang wurde am 23.07.2014 11:21:36 gestartet.
-     1>Projekt "C:\Users\Fabian\Desktop\SWT_Projekt\140723_Version 2\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14.vcxproj" auf Knoten "2", Build Ziel(e).
-     1>Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Fabian\Desktop\SWT_Projekt\140723_Version 2\THM_SWT_Projekt_SS14\Debug\THM_SWT_Projekt_SS14.exe" /INCREMENTAL /NOLOGO "C:\gtk\lib\atk-1.0.lib" C:\gtk\lib\cairo.lib C:\gtk\lib\fontconfig.lib C:\gtk\lib\gailutil.lib "C:\gtk\lib\gdk_pixbuf-2.0.lib" "C:\gtk\lib\gdk-win32-3.0.lib" "C:\gtk\lib\gio-2.0.lib" "C:\gtk\lib\glib-2.0.lib" "C:\gtk\lib\gmodule-2.0.lib" "C:\gtk\lib\gobject-2.0.lib" "C:\gtk\lib\gthread-2.0.lib" "C:\gtk\lib\gtk-win32-3.0.lib" "C:\gtk\lib\pango-1.0.lib" "C:\gtk\lib\pangocairo-1.0.lib" "C:\gtk\lib\pangoft2-1.0.lib" "C:\gtk\lib\pangowin32-1.0.lib" "C:\curl-7.37.0\curllib.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Fabian\Desktop\SWT_Projekt\140723_Version 2\THM_SWT_Projekt_SS14\Debug\THM_SWT_Projekt_SS14.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Controller.obj
+﻿Der Buildvorgang wurde am 23.07.2014 12:02:06 gestartet.
+     1>Projekt "C:\Users\Fabian\Documents\GitHub\THM_SWT_Projekt\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14.vcxproj" auf Knoten "2", Build Ziel(e).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /I"C:\gtk\include\atk-1.0" /IC:\gtk\include\cairo /IC:\gtk\include\fontconfig /IC:\gtk\include\freetype2 /I"C:\gtk\include\gail-3.0" /I"C:\gtk\include\gdk-pixbuf-2.0" /I"C:\gtk\include\gio-win32-2.0" /I"C:\gtk\include\glib-2.0" /I"C:\gtk\include\gtk-3.0" /IC:\gtk\include\jasper /I"C:\gtk\include\libcroco-0.6" /IC:\gtk\include\libpng15 /IC:\gtk\include /I"C:\gtk\include\librsvg-2.0" /IC:\gtk\include\libxml2 /IC:\gtk\include\lzma /I"C:\gtk\include\pango-1.0" /I"C:\gtk\include\pixman-1" /I"C:\gtk\lib\glib-2.0\include" /I"C:\curl-7.37.0\include" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\\" /AI"C:\Program Files (x86)\Windows Kits\8.0\References\CommonConfiguration\Neutral" /AI"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\Facades\\" /Zi /clr /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _UNICODE /D UNICODE /EHa /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /TP /FU"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.5\mscorlib.dll" /analyze- /errorReport:prompt /clr:nostdlib Controller.cpp HTTPDownloader.cpp main.cpp Model.cpp Observer_Balken.cpp Observer_Dots.cpp Observer_Graph.cpp Observer_Text.cpp
+         Controller.cpp
+         HTTPDownloader.cpp
+         main.cpp
+         Model.cpp
+         Observer_Balken.cpp
+         Observer_Dots.cpp
+     1>Observer_Dots.cpp(62): warning C4101: 'matrix': Unreferenzierte lokale Variable
+         Observer_Graph.cpp
+         Observer_Text.cpp
+         Code wird generiert...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Fabian\Documents\GitHub\THM_SWT_Projekt\THM_SWT_Projekt_SS14\Debug\THM_SWT_Projekt_SS14.exe" /INCREMENTAL /NOLOGO "C:\gtk\lib\atk-1.0.lib" C:\gtk\lib\cairo.lib C:\gtk\lib\fontconfig.lib C:\gtk\lib\gailutil.lib "C:\gtk\lib\gdk_pixbuf-2.0.lib" "C:\gtk\lib\gdk-win32-3.0.lib" "C:\gtk\lib\gio-2.0.lib" "C:\gtk\lib\glib-2.0.lib" "C:\gtk\lib\gmodule-2.0.lib" "C:\gtk\lib\gobject-2.0.lib" "C:\gtk\lib\gthread-2.0.lib" "C:\gtk\lib\gtk-win32-3.0.lib" "C:\gtk\lib\pango-1.0.lib" "C:\gtk\lib\pangocairo-1.0.lib" "C:\gtk\lib\pangoft2-1.0.lib" "C:\gtk\lib\pangowin32-1.0.lib" "C:\curl-7.37.0\curllib.lib" /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Fabian\Documents\GitHub\THM_SWT_Projekt\THM_SWT_Projekt_SS14\Debug\THM_SWT_Projekt_SS14.pdb" /ASSEMBLYDEBUG /TLBID:1 /DYNAMICBASE /FIXED:NO /NXCOMPAT /MACHINE:X86 Debug\Controller.obj
          Debug\HTTPDownloader.obj
          Debug\main.obj
          Debug\Model.obj
@@ -14,9 +26,9 @@
      1>Observer_Dots.obj : warning LNK4248: Nicht aufgel÷stes Typeref-Token (01000014) f³r "_cairo". Das Image kann m÷glicherweise nicht ausgef³hrt werden.
      1>Observer_Balken.obj : warning LNK4248: Nicht aufgel÷stes Typeref-Token (01000014) f³r "_cairo". Das Image kann m÷glicherweise nicht ausgef³hrt werden.
      1>main.obj : warning LNK4248: Nicht aufgel÷stes Typeref-Token (01000015) f³r "_cairo". Das Image kann m÷glicherweise nicht ausgef³hrt werden.
-         THM_SWT_Projekt_SS14.vcxproj -> C:\Users\Fabian\Desktop\SWT_Projekt\140723_Version 2\THM_SWT_Projekt_SS14\Debug\THM_SWT_Projekt_SS14.exe
-     1>Die Erstellung des Projekts "C:\Users\Fabian\Desktop\SWT_Projekt\140723_Version 2\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14.vcxproj" ist abgeschlossen, Build Ziel(e).
+         THM_SWT_Projekt_SS14.vcxproj -> C:\Users\Fabian\Documents\GitHub\THM_SWT_Projekt\THM_SWT_Projekt_SS14\Debug\THM_SWT_Projekt_SS14.exe
+     1>Die Erstellung des Projekts "C:\Users\Fabian\Documents\GitHub\THM_SWT_Projekt\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14\THM_SWT_Projekt_SS14.vcxproj" ist abgeschlossen, Build Ziel(e).
 
 Build erfolgreich.
 
-Verstrichene Zeit 00:00:02.23
+Verstrichene Zeit 00:00:19.42
